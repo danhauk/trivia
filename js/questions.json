@@ -1,0 +1,52 @@
+{
+	"1" : {
+		"question": "The peanut is a type of nut.",
+		"answer": false
+	},
+
+	"2" : {
+		"question": "To tell someone to \"break a leg\" is a way to wish them good luck.",
+		"answer": true
+	},
+
+	"3" : {
+		"question": "The control ropes to position sails on a ship are called masts.",
+		"answer": false
+	},
+
+	"4" : {
+		"question": "Agoraphobia is the fear of spiders.",
+		"answer": false
+	},
+
+	"5" : {
+		"question": "Audiences in ancient Greece would slap their thighs instead of clapping to show their appreciation for a performance.",
+		"answer": false
+	},
+
+	"6" : {
+		"question": "The average flight altitude of a commercial aircraft is 30,000 feet.",
+		"answer": true
+	},
+
+	"7" : {
+		"question": "John Glenn became the first American to orbit the Earth in 1962.",
+		"answer": true
+	},
+
+	"8" : {
+		"question": "New York City is nicknamed \"Sin City\".",
+		"answer": false
+	},
+
+	"9" : {
+		"question": "Ambidextrous means being able to do something equally well with both hands.",
+		"answer": true
+	},
+
+	"10" : {
+		"question": "Pablo Picasso piloted the first powered airplane with a flight of 120 feet lasting 12 seconds in Kitty Hawk, North Carolina.",
+		"answer": false
+	}
+
+}
