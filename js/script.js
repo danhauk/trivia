@@ -1,6 +1,8 @@
-// general resets
-var current_question_num = 0;
+// set total number of questions to ask
 var total_questions = 5;
+
+// general var resets
+var current_question_num = 0;
 var score = 0;
 
 var questions = [];
@@ -17,8 +19,7 @@ function display_question() {
 		current_question = questions[current_question_num];
 		
 		setTimeout(function() {
-			$('.question-text').html( current_question.question );
-			$('.question-text, .question').fadeIn();
+			$('.question-text').html( current_question.question ).add('.question').fadeIn();
 		}, 300);
 	}
 	else {
