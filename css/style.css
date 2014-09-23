@@ -196,6 +196,31 @@ body {
 }
 
 
+/**
+* =Footer
+*
+*/
+.site-footer {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	padding: 10px;
+	text-align: center;
+	font-size: 12px;
+}
+
+.site-footer a {
+	color: #39c;
+	text-decoration: none;
+	transition: all 0.2s;
+}
+
+.site-footer a:hover {
+	color: #8B3939;
+}
+
+
 /*--------------------------------------------------------------
 	Mobile
 --------------------------------------------------------------*/
