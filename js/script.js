@@ -8,52 +8,69 @@ var score = 0;
 var questions = [];
 var current_question = null;
 
-// load a question
 function display_question() {
-	// reset display options
-	$('.question-text').fadeOut();
-	$('.answer-display').slideUp(100).removeClass( 'correct incorrect' );
-	$('.button').removeClass( 'selected disabled' );
+	// reset question card display
+	$('.question').removeClass( 'slideInRight' ).addClass( 'slideOutLeft' );
 
+	// check if we have questions to display
 	if ( current_question_num < total_questions ) {
 		current_question = questions[current_question_num];
 		
+		// add slight delay in showing new question
+		// to make sure we don't see it change
 		setTimeout(function() {
-			$('.question-text').html( current_question.question ).add('.question').fadeIn();
-		}, 300);
+			// reset buttons and answer
+			$('.answer-display').removeClass( 'correct incorrect bounceIn' ).hide();
+			$('.button').removeClass( 'slideOutLeft slideOutRight' );
+
+			// show next question
+			$('.question-text').html( current_question.question );
+		}, 500);
 	}
 	else {
 		end_quiz();
 	}
+
+	// slide out current question and display new question
+	setTimeout(function() {
+		$('.question').removeClass( 'slideOutLeft' ).addClass( 'slideInRight' ).show();
+	}, 500);
 }
 
-// answer question
 function answer_question(question, answer) {
 	var correct_answer = question.answer;
+	var is_correct = null;
 
 	if ( answer == correct_answer ) {
 		score++;
-		var is_correct = 'Correct!';
-		$('.answer-display').addClass( 'correct' );
+		is_correct = true;
 	}
 	else {
-		var is_correct = 'Wrong!';
-		$('.answer-display').addClass( 'incorrect' );
+		is_correct = false;
 	}
 
-	$('.answer-display').html( is_correct ).slideDown(100);
+	display_answer( is_correct );
 
 	current_question_num++;
-
-	setTimeout(function() {
-		display_question();
-	}, 1500);
 }
 
-// end quiz
-function end_quiz() {
-	$('.question').fadeOut();
+function display_answer( is_correct ) {
+	if ( is_correct ) {
+		$('.answer-display').addClass( 'correct' ).html( 'Correct!' );
+	}
+	else {
+		$('.answer-display').addClass( 'incorrect' ).html( 'Wrong!' );
+	}
 
+	// animate that ish for funzies
+	$('.button-true').addClass( 'slideOutLeft' );
+	$('.button-false').addClass( 'slideOutRight' );
+	$('.answer-display').addClass( 'bounceIn' ).show();
+
+	setTimeout( display_question, 1500 );
+}
+
+function end_quiz() {
 	var final_message = '';
 	var grade_f = total_questions * 0.25;
 	var grade_c = total_questions * 0.50;
@@ -72,9 +89,9 @@ function end_quiz() {
 		final_message = 'Were you even trying?';
 	}
 
+	// add a slight delay so we don't see the text change
 	setTimeout(function() {
 		$('.question').addClass( 'end' ).html( '<h1>That\'s all the questions!</h1><h2>You scored ' + score + ' out of ' + total_questions + '</h2><h3>' + final_message + '</h3>' );
-		$('.question').fadeIn();
 	}, 500);
 }
 
@@ -110,11 +127,9 @@ $(document).ready(function() {
 	});
 
 	// listen for answer button clicks
-	$('.button-answer').click(function() {
+	$('.button').click(function() {
 		var answer = $(this).data('answer');
 		var question = questions[current_question_num];
-
-		$(this).addClass( 'selected' ).siblings().addClass( 'disabled' );
 
 		answer_question( question, answer );
 	});

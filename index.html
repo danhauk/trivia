@@ -8,6 +8,7 @@
 
   	<meta name="viewport" content="width=device-width,initial-scale=1">
 
+  	<link rel="stylesheet" href="css/animate.css" />
   	<link rel="stylesheet" href="css/style.css" />
 
 </head>
@@ -15,15 +16,14 @@
 <body>
 
 <section class="main">
-	<article class="question">
+	<article class="question animated">
 		<p class="question-text"></p>
 
 		<footer class="answer">
-			<a href="javascript:;" class="button button-answer button-true" data-answer="true">True</a>
-			<a href="javascript:;" class="button button-answer button-false" data-answer="false">False</a>
+			<a href="javascript:;" class="button button-true animated" data-answer="true">True</a>
+			<a href="javascript:;" class="button button-false animated" data-answer="false">False</a>
+			<div class="answer-display animated"></div>
 		</footer>
-
-		<div class="answer-display"></div>
 	</article>
 </section>
 
